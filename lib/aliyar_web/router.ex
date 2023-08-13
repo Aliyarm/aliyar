@@ -40,5 +40,13 @@ defmodule AliyarWeb.Router do
       live_dashboard "/dashboard", metrics: AliyarWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+
+    scope "/", AliyarWeb do
+      pipe_through :browser
+
+      get "/", PageController, :home
+      get "/aliyar", AliyarController, :index
+    end
   end
+
 end
