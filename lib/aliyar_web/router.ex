@@ -14,12 +14,6 @@ defmodule AliyarWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", AliyarWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", AliyarWeb do
   #   pipe_through :api
@@ -46,7 +40,6 @@ defmodule AliyarWeb.Router do
 
       get "/", PageController, :home
       get "/aliyar", AliyarController, :index
-      get "/aliyar/:messenger", AliyarController, :show
     end
   end
 
