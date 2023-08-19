@@ -40,6 +40,7 @@ defmodule AliyarWeb.Router do
 
       get "/", PageController, :home
       get "/aliyar", AliyarController, :index
+      get "/abay", AliyarController, :index2
     end
   end
 

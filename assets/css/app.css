@@ -3,3 +3,266 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+/* @import "./null.css"; */
+
+/* Стили для контейнера */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Занимает всю ширину экрана */
+  padding: 20px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+/* Стили для блока с информацией и логотипом */
+.shapochka {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Стили для ссылок внутри блока с информацией */
+.info a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  margin-right: 100px;
+}
+
+/* Стили для логотипа */
+.logo img {
+  height: 57px;
+  width: auto;
+}
+
+/* Стили для номера телефона */
+.phone {
+  font-weight: bold;
+  margin-right: 100px;
+}
+    
+.main-page {
+  position: absolute; /* Позиционирование абсолютное */
+  top: 100px; /* Отступ сверху */
+  left: 0px;
+  right: 0; /* Расположение справа */
+  bottom: 0; /* Расположение снизу */
+  padding: 20px;
+  background-color: #dcd2d2;
+  height: calc(100vh - 100px); /* Высота всего экрана минус высота container */
+  width: 100vw; /* Занимает всю ширину экрана */
+}
+
+.course_blocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2fr 1fr;
+  gap: 20px;
+  width: 700px; /* Задайте желаемую ширину */
+  height: 500px; /* Задайте желаемую высоту */
+}
+
+
+.exchanger {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  background-color: #8b1a49;
+  width: 50vw;
+  border-radius: 30px; /* Закругление углов */
+  border: 10px solid #e0e0e0;
+  align-items: center;
+  padding: 30px; justify-content: space-between; /* Равномерно распределяет элементы по высоте */
+  /* height: 100%; Добавляем высоту 100%, чтобы блок занимал всю доступную высоту */
+}
+
+.exchanger_title {
+  width: 100%;
+  font-size: 34px;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 10px; /* Расстояние между заголовком и датой */
+}
+
+.exchanger_date {
+  width: 100%;
+  font-size: 15px;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 10px; 
+}
+
+.exchanger_table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Регулирует расстояние между элементами */
+  padding: 10px; /* Добавляем немного внутреннего отступа */
+}
+
+.exchanger_body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Регулирует расстояние между элементами */
+}
+
+/* Стили для блока exchanger_line */
+.exchanger_line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Стили для блока exchanger_buy и exchanger_sell */
+.exchanger_buy,
+.exchanger_sell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Стили для элемента currency */
+.currency {
+  font-size: 20px;
+  color: #999;
+  margin: 0 10px;
+}
+
+/* Стили для элемента price */
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.calculator {
+  grid-column: 2 / span 2;
+  align-self: start;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  width: 500px;
+  /* height: 25vw; */
+  border-radius: 30px; /* Закругление углов */
+  padding: 30px;
+  justify-content: space-between; /* Равномерно распределяет элементы по высоте */
+}
+
+.national_bank {
+  grid-column: 2 / span 2;
+  align-self: end;
+  justify-self: end;
+  display: flex;
+  background-color: #f0f0f0;
+  width: 500px;
+  /* height: 25vw; */
+  border-radius: 30px; /* Закругление углов */
+  padding: 30px;
+}
+
+#kursinfo5 {
+width: 100%;
+font-size: 10px;
+font-family: arial;
+border: 1px solid #799BCF;
+line-height: 1.1;
+margin: 10px auto;
+max-width:400px;
+}
+#kursinfo5 p{
+margin: 0;
+}
+#kursinfo5 .logo {
+/* background-image: URL(https://kurs-tenge.kz/informers/img/logo.png); */
+font-size: 1.4em;
+padding: 5px 0 5px 40px;
+background-size: 35px;
+background-repeat: no-repeat;
+}
+#kursinfo5 .logo p {
+font-size: 0.8em	
+}
+#kursinfo5 .headtabl {
+float: left;
+font-weight: bold;
+font-size: 12px;	
+}
+#kursinfo5 table {
+margin: 5px auto;
+width: 100%;
+}
+#kursinfo5 .headerkurs {
+background: linear-gradient(to top, #bde3f0, #59A3EC);
+padding: 0 3px;
+text-shadow: 1px 1px 1px #fff;
+height: 40px;
+margin: 0 0 10px;
+}
+#kursinfo5 .kontentinfo {
+padding:2px;
+}
+#kursinfo5 .kontentinfo .dat {
+text-align: right;
+}
+#kursinfo5 .kontentinfo p.green {
+color: green;
+}
+#kursinfo5 .kontentinfo .info {
+font-size: 11px;
+}
+#kursinfo5 .kontentinfo .info i{
+font-size: 13px;
+margin: 0 5px;
+}
+#kursinfo5 .kontentinfo .info:nth-child(4) i {
+color: #349A9A;
+}
+#kursinfo5 .kontentinfo .info:nth-child(5) i {
+color: #2C61CA;
+}
+#kursinfo5 .kontentinfo a {
+text-decoration: none;
+text-align: center;
+display: block;
+}
+#kursinfo5 .kantry {
+background-repeat: no-repeat;
+padding: 0 0 0 34px;
+background-size: 20px auto;
+height: 20px;
+}
+#kursinfo5 .kyrsvalyt .USD {
+width: 40%;
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/flag/USD.png);
+}
+#kursinfo5 .kyrsvalyt .EUR {
+width: 40%;
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/flag/EUR.png);
+}
+#kursinfo5 .kyrsvalyt .CNY {
+width: 40%;
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/flag/CNY.png);
+}
+#kursinfo5 .kyrsvalyt .RUB {
+width: 40%;
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/flag/RUB.png);
+}
+#kursinfo5 .kyrsvalyt td.level-up, #kursinfo5 .kyrsvalyt td.level-down {
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/up.png);	
+background-repeat: no-repeat;
+background-size: 10px;
+background-position: left center;
+padding: 0 0 0 30px;
+}
+#kursinfo5 .kyrsvalyt td.level-down {
+background-image: URL(https://kurs-tenge.kz/informers/img/icon/down.png);
+color:red;	
+}

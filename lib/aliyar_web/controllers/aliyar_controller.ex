@@ -7,4 +7,10 @@ defmodule AliyarWeb.AliyarController do
     |> render(:index)
   end
 
+  def index2(conn, _params) do
+    conn
+    |> put_layout(html: :page)
+    |> render(:index2)
+  end
+
 end
