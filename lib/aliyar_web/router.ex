@@ -38,9 +38,10 @@ defmodule AliyarWeb.Router do
     scope "/", AliyarWeb do
       pipe_through :browser
 
-      get "/", PageController, :home
-      get "/aliyar", AliyarController, :index
-      get "/abay", AliyarController, :index2
+      get "/", AliyarController, :index
+      
+      get "/admin/login", AdminController, :login_form
+      post "/admin", AdminController, :login_admin_submit
     end
   end
 
