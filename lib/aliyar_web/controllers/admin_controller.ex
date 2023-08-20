@@ -11,29 +11,30 @@ defmodule AliyarWeb.AdminController do
     |> render(:login_form)
   end
 
-  # @doc """
-  # POST /admin/login
-  # Проверка вводимых данных при авторизации админа.
-  # """
-  # def login_admin_submit(conn, params) do
-  #   opts = [
-  #     login: params["login"],
-  #     password: hash_str(params["password"])
-  #   ]
+  @doc """
+  POST /admin/login
+  Проверка вводимых данных при авторизации админа.
+  """
+  def login_admin_submit(conn, params) do
+    IO.inspect("TUT")
+    opts = [
+      login: params["login"],
+      password: :crypto.hash(:sha256, (params["password"]) |> Base.encode16())
+    ]
 
-  #   case Admins.do_get(opts) do
-  #     {:ok, admin} ->
-  #       conn
-  #       |> put_session(:admin, %{id: admin.id, login: admin.login})
-  #       |> put_flash(:info, "Добро пожаловать #{admin.login}")
-  #       |> redirect(to: "/admin/organization")
+    case Admins.do_get(opts) do
+      {:ok, admin} ->
+        conn
+        |> put_session(:admin, %{id: admin.id, login: admin.login})
+        |> put_flash(:info, "Добро пожаловать #{admin.login}")
+        |> redirect(to: "/admin/organization")
 
-  #     {:error, :not_found} ->
-  #       conn
-  #       |> put_flash(:error, "Невеный логин или пароль")
-  #       |> redirect(to: "/admin/login")
-  #   end
-  # end
+      {:error, :not_found} ->
+        conn
+        |> put_flash(:error, "Невеный логин или пароль")
+        |> redirect(to: "/admin/login")
+    end
+  end
 
   # @doc """
   # GET /admin/logout
