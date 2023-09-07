@@ -39,9 +39,12 @@ defmodule AliyarWeb.Router do
       pipe_through :browser
 
       get "/", AliyarController, :index
-      
+
+      get "/admin", AdminController, :login_admin_submit
       get "/admin/login", AdminController, :login_form
-      post "/admin", AdminController, :login_admin_submit
+      get "/admin/exchanges", AdminController, :exchanges_list
+      get "/admin/exchanges/update", AdminController, :exchanges_update
+
     end
   end
 

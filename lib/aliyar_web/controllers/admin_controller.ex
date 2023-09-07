@@ -6,7 +6,6 @@ defmodule AliyarWeb.AdminController do
   Форма авторизации админа.
   """
   def login_form(conn, _params) do
-    # changeset = Aliyar.Model.User.changeset(%User{})
     conn
     |> render(:login_form)
   end
@@ -16,24 +15,34 @@ defmodule AliyarWeb.AdminController do
   Проверка вводимых данных при авторизации админа.
   """
   def login_admin_submit(conn, params) do
-    IO.inspect("TUT")
-    opts = [
-      login: params["login"],
-      password: :crypto.hash(:sha256, (params["password"]) |> Base.encode16())
-    ]
+    IO.inspect(params)
 
-    case Admins.do_get(opts) do
+    opts = %{
+      login: params["login"],
+      password: :crypto.hash(:sha256, params["password"]) |> Base.encode16()
+    }
+
+    case Aliyar.Context.Users.do_get(opts) do
       {:ok, admin} ->
         conn
         |> put_session(:admin, %{id: admin.id, login: admin.login})
         |> put_flash(:info, "Добро пожаловать #{admin.login}")
-        |> redirect(to: "/admin/organization")
+        |> redirect(to: "/admin/exchanges")
 
       {:error, :not_found} ->
         conn
         |> put_flash(:error, "Невеный логин или пароль")
         |> redirect(to: "/admin/login")
     end
+  end
+
+  def exchanges_list(conn, _params) do
+    all_exchanges =
+      Aliyar.Context.Exchanges.all()
+      |> Enum.map(& Map.from_struct(&1))
+
+    conn
+    |> render(:exchanges_list, exchanges: all_exchanges)
   end
 
   # @doc """
