@@ -6,6 +6,7 @@ defmodule AliyarWeb.AdminController do
   Форма авторизации админа.
   """
   def login_form(conn, _params) do
+    IO.inspect("TUT")
     conn
     |> render(:login_form)
   end
